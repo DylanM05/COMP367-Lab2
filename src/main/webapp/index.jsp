@@ -5,9 +5,9 @@
             java.util.Date date = new java.util.Date();
             int hours = date.getHours();
             if (hours < 12) {
-                out.print("Good morning, John, Welcome to COMP367");
+                out.println("Good morning, John, Welcome to COMP367");
             } else {
-                out.print("Good afternoon, John, Welcome to COMP367");
+                out.println("Good afternoon, John, Welcome to COMP367");
             }
             %>
         </h1>
