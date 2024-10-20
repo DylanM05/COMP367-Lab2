@@ -12,9 +12,4 @@ pipeline {
             }
         }
     }
-    post {
-        success {
-            archiveArtifacts artifacts: 'src/main/webapp/index.jsp', fingerprint: true
-        }
-    }
 }
