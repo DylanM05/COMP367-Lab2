@@ -14,7 +14,7 @@ pipeline {
     }
     post {
         success {
-            archiveArtifacts artifacts: 'index.jsp', fingerprint: true
+            archiveArtifacts artifacts: 'src/main/webapp/index.jsp', fingerprint: true
         }
     }
 }
