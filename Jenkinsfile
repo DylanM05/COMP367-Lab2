@@ -11,16 +11,15 @@ pipeline {
                 sh 'mvn clean package -DskipTests'
             }
         }
-      stage('Docker Login') {
-    	    steps {
+        stage('Docker Login') {
+            steps {
                 script {
-                     echo "Attempting Docker login..."
-                     docker.withRegistry('https://registry.hub.docker.com', 'acb1d8d7-5cb5-4186-9897-3797443b7ae2') {
-                     echo "Docker login successful."
+                    docker.withRegistry('https://registry.hub.docker.com', 'acb1d8d7-5cb5-4186-9897-3797443b7ae2') {
+                        echo "Docker login successful."
+                    }
+                }
             }
         }
-    }
-}
 
                 }
             }
