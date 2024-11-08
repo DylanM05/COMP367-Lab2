@@ -14,9 +14,10 @@ pipeline {
         stage('Docker Login') {
             steps {
                 script {
-                    docker.withRegistry('https://index.docker.io/v1/', 'acb1d8d7-5cb5-4186-9897-3797443b7ae2') {
-                        // Credentials are stored and used securely
-                    }
+			docker.withRegistry('https://registry.hub.docker.com', 'acb1d8d7-5cb5-4186-9897-3797443b7ae2') {
+    			// Credentials are stored and used securely
+		}
+
                 }
             }
         }
