@@ -27,7 +27,7 @@ pipeline {
         }
         stage('Docker Push') {
             steps {
-                sh 'docker push dylanm31222/webapp1:latest'
+                sh 'docker push dylanm31222/webapp:latest'
             }
         }
     }
