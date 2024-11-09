@@ -7,5 +7,5 @@ RUN mvn clean package -DskipTests
 # Use a Java runtime image to run the app
 FROM openjdk:11-jre-slim
 WORKDIR /app
-COPY --from=build /app/target/*.jar app.jar
-CMD ["java", "-jar", "app.jar"]
+COPY --from=build /app/target/comp367-webapp.war app.war
+CMD ["java", "-jar", "app.war"]
