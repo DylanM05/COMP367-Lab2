@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        DOCKER_CREDENTIALS_ID = 'acb1d8d7-5cb5-4186-9897-3797443b7ae2' // Replace with your actual credentials ID
+        DOCKER_PASSWORD = credentials('docker_password') 
     }
     stages {
         stage('Checkout') {
@@ -16,27 +16,17 @@ pipeline {
         }
         stage('Docker Login') {
             steps {
-                script {
-                    docker.withRegistry('https://registry.hub.docker.com', DOCKER_CREDENTIALS_ID) {
-                        echo "Docker login successful."
-                        sh 'docker info'
-                    }
-                }
+                sh 'echo $DOCKER_PASSWORD | docker login -u dylanm31222 --password-stdin'
             }
         }
         stage('Docker Build') {
             steps {
                 sh 'docker build -t dylanm31222/webapp1 .'
-                sh 'docker images'
             }
         }
         stage('Docker Push') {
             steps {
-                script {
-                    docker.withRegistry('https://registry.hub.docker.com', DOCKER_CREDENTIALS_ID) {
-                        sh 'docker push dylanm31222/webapp1:latest'
-                    }
-                }
+                sh 'docker push dylanm31222/webapp1:latest'
             }
         }
     }
