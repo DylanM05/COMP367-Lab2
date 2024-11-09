@@ -19,6 +19,7 @@ pipeline {
                 script {
                     docker.withRegistry('https://registry.hub.docker.com', DOCKER_CREDENTIALS_ID) {
                         echo "Docker login successful."
+                        sh 'docker info'
                     }
                 }
             }
@@ -26,6 +27,7 @@ pipeline {
         stage('Docker Build') {
             steps {
                 sh 'docker build -t dylanm31222/webapp1 .'
+                sh 'docker images'
             }
         }
         stage('Docker Push') {
