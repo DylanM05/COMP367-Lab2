@@ -1,9 +1,7 @@
 pipeline {
     agent any
     environment {
-        DOCKER_CREDENTIALS_ID = 'acb1d8d7-5cb5-4186-9897-3797443b7ae2' // Replace with your actual credentials ID
-        DOCKER_USERNAME = credentials('docker-username') // Replace with your Docker Hub username credentials ID
-        DOCKER_PASSWORD = credentials('docker-password') // Replace with your Docker Hub password credentials ID
+        DOCKER_PASSWORD = credentials('docker_password') 
     }
     stages {
         stage('Checkout') {
@@ -19,7 +17,7 @@ pipeline {
         }
         stage('Docker Login') {
             steps {
-                sh 'echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin'
+                sh 'echo $DOCKER_PASSWORD | docker login -u dylanm31222 --password-stdin'
             }
         }
         stage('Docker Build') {
