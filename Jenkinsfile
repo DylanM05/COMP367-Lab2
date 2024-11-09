@@ -12,6 +12,7 @@ pipeline {
         stage('Build Maven Project') {
             steps {
                 sh 'mvn clean package -DskipTests'
+                sh 'ls -l target' // List the contents of the target directory
             }
         }
         stage('Docker Login') {
