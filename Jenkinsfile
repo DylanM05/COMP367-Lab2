@@ -22,12 +22,12 @@ pipeline {
         }
         stage('Docker Build') {
             steps {
-                sh 'docker build -t dylanm31222/webapp .'
+                sh 'docker build -t dylanm31222/webapp1 .'
             }
         }
         stage('Docker Push') {
             steps {
-                sh 'docker push dylanm31222/webapp:latest'
+                sh 'docker push dylanm31222/webapp1:latest'
             }
         }
     }
